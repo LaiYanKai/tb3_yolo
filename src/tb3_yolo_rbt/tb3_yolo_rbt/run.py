@@ -33,7 +33,7 @@ class Run(Node):
             0.05, self.run_)
         
         # YOLO Model
-        path_to_model = os.path.join(os.path.expanduser("~"), "tb3_yolo_rbt/", "best.pt")
+        path_to_model = os.path.join(os.path.expanduser("~"), "tb3_yolo/", "best.pt")
         print(path_to_model)
         self.model_ = YOLO(path_to_model)
         
