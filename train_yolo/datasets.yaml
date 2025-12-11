@@ -1,0 +1,13 @@
+  # relative to this file, the dataset is contained in `datasets/proj2/`
+  # images are located in the `datasets/traffic_signs/images/` folder.
+  # labels are located in the `datasets/traffic_signs/labels/` folder.
+
+  path: traffic_signs
+  train: images/
+  val: images/
+  test: # (optional)
+
+  # Classes
+  names:
+    0: left
+    1: right

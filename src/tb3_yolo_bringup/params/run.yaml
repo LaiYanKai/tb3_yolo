@@ -1,0 +1,68 @@
+amcl:
+  ros__parameters:
+    alpha1: 0.02
+    alpha2: 0.02
+    alpha3: 0.02
+    alpha4: 0.02
+    alpha5: 0.02
+    base_frame_id: "base_footprint"
+    beam_skip_distance: 0.5
+    beam_skip_error_threshold: 0.2 # 0.9
+    beam_skip_threshold: 0.3
+    do_beamskip: false
+    global_frame_id: "map"
+    lambda_short: 0.1
+    laser_likelihood_max_dist: 3.0 # 2.0
+    laser_max_range: 100.0
+    laser_min_range: -1.0
+    laser_model_type: "likelihood_field"
+    max_beams: 360 # 60
+    max_particles: 500
+    min_particles: 500 # 500
+    odom_frame_id: "odom"
+    pf_err: 0.05
+    pf_z: 0.99
+    recovery_alpha_fast: 0.0
+    recovery_alpha_slow: 0.0
+    resample_interval: 1
+    robot_model_type: "nav2_amcl::DifferentialMotionModel"
+    save_pose_rate: 0.5
+    sigma_hit: 0.2
+    tf_broadcast: true
+    transform_tolerance: 0.5
+    update_min_a: 0.05
+    update_min_d: 0.02
+    z_hit: 2.0
+    z_max: 0.05
+    z_rand: 0.5
+    z_short: 0.05
+    scan_topic: scan
+    map_topic: map
+    set_initial_pose: true
+    always_reset_initial_pose: true
+    first_map_only: false
+    initial_pose:
+      x: 0.0
+      y: 0.0
+      z: 0.0
+      yaw: 0.0
+    use_sim_time: false
+
+tb3_yolo_planner:
+  ros__parameters:
+    max_access_cost: 95 # {int} []
+
+tb3_yolo_mapper:
+  ros__parameters:
+    frame_id: "/map"            # {string}
+    max_cost: 99               # {int} DO NOT CHANGE
+    min_cost: 0                 # {int} DO NOT CHANGE
+    enable_map: false # {bool}
+    topic_map: "/map"           # {string}
+    enable_topic_global_costmap: true # {bool}
+    topic_global_costmap: "/custom_costmap"   #{string}
+    circumscribed_radius: 0.08  # {double} [m]
+    inflation_radius: 0.3       # {double} [m]
+    cost_exponent: 5.0          # {double}
+    # filepath: "src/ee3305_bringup/maps/ee3305" # {string} this will be overridden by the launch file.
+    
