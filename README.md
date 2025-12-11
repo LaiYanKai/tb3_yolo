@@ -4,7 +4,8 @@ cd $HOME
 git clone https://github.com/laiyankai/tb3_yolo
 cd $HOME/tb3_yolo
 colcon build --symlink-install
-nano ~/.bashrc
+chmod +x *.sh
+echo $ROS_DOMAIN_ID
 ```
 
 ```bash
