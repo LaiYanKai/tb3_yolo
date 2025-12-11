@@ -22,7 +22,7 @@ set (DEPENDENCIES
 )
 
 install(
-  DIRECTORY launch rviz params maps urdf
+  DIRECTORY launch rviz params maps
   DESTINATION share/${PROJECT_NAME}/
 )
 
