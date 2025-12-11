@@ -16,4 +16,6 @@ ssh ece@10.42.0.
 rm -rf $HOME/tb3_yolo
 wget https://raw.githubusercontent.com/LaiYanKai/Misc/main/tb3_jazzy_c1_cam3/flash.sh
 wget https://raw.githubusercontent.com/LaiYanKai/Misc/main/tb3_jazzy_c1_cam3/robot.sh
+chmod +x *.sh
+echo $ROS_DOMAIN_ID
 ```
