@@ -1,5 +1,7 @@
 ```bash
+sudo apt update
 sudo apt install ros-jazzy-desktop ros-dev-tools ros-jazzy-ros-gz ros-jazzy-turtlebot3-gazebo ros-jazzy-turtlebot3-teleop ros-jazzy-turtlebot3-cartographer ros-jazzy-nav2-map-server ros-jazzy-turtlebot3-navigation2 ros-jazzy-nav2-route -y
+sudo apt upgrade -y
 cd $HOME
 git clone https://github.com/laiyankai/tb3_yolo
 cd $HOME/tb3_yolo
