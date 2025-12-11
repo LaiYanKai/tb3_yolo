@@ -28,7 +28,7 @@ class YOLOAndQR(Node):
             Int64MultiArray, 'yolo/result', 2)
         
         # YOLO Model
-        path_to_model = os.path.join(os.path.expanduser("~"), "tb3_yolo_pc", "best.pt")
+        path_to_model = os.path.join(os.path.expanduser("~"), "tb3_yolo", "best.pt")
         print(f"Loading {path_to_model}...")
         self.model_ = YOLO(path_to_model)
 
