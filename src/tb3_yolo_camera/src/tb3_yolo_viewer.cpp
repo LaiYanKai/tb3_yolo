@@ -53,8 +53,10 @@ public:
         this->declare_parameter<std::string>("window", "camera");
         this->window_ = this->get_parameter("window").get_value<std::string>();
 
+        rclcpp::QoS qos_profile = rclcpp::SensorDataQoS();
+        qos_profile.keep_last(1);
         this->sub_img_ = this->create_subscription<sensor_msgs::msg::CompressedImage>(
-            this->topic_, 1, std::bind(&Capture::callbackImage_, this, std::placeholders::_1));
+            this->topic_, qos_profile, std::bind(&Capture::callbackImage_, this, std::placeholders::_1));
     }
 
 private:
@@ -63,6 +65,7 @@ private:
         try
         {
             this->img_ = cv_bridge::toCvCopy(msg);
+            // cv::rotate(this->img_->image, this->img_->image, cv::ROTATE_90_CLOCKWISE);
             cv::imshow(this->window_, this->img_->image);
             cv::waitKey(10);
         }
