@@ -41,6 +41,7 @@ private:
     bool need_capture_;
     bool has_img_;
     int img_cnt_;
+    int rotate_;
 
 public:
     explicit Capture()
@@ -52,6 +53,9 @@ public:
 
         this->declare_parameter<std::string>("window", "camera");
         this->window_ = this->get_parameter("window").get_value<std::string>();
+
+        this->declare_parameter<int>("rotate", 0);
+        this->rotate_ = this->get_parameter("rotate").get_value<int>();
 
         rclcpp::QoS qos_profile = rclcpp::SensorDataQoS();
         qos_profile.keep_last(1);
@@ -65,7 +69,12 @@ private:
         try
         {
             this->img_ = cv_bridge::toCvCopy(msg);
-            // cv::rotate(this->img_->image, this->img_->image, cv::ROTATE_90_CLOCKWISE);
+            if (this->rotate_ == 1)
+                cv::rotate(this->img_->image, this->img_->image, cv::ROTATE_90_COUNTERCLOCKWISE);
+            else if (this->rotate_ == 2)
+                cv::rotate(this->img_->image, this->img_->image, cv::ROTATE_180);
+            else if (this->rotate_ == 3)
+                cv::rotate(this->img_->image, this->img_->image, cv::ROTATE_90_CLOCKWISE);
             cv::imshow(this->window_, this->img_->image);
             cv::waitKey(10);
         }
